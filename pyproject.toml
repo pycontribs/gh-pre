@@ -1,0 +1,54 @@
+[build-system]
+# AVOID CHANGING REQUIRES: IT WILL BE UPDATED BY PYSCAFFOLD!
+requires = ["setuptools>=46.1.0", "setuptools_scm[toml]>=5"]
+build-backend = "setuptools.build_meta"
+
+[project]
+# https://peps.python.org/pep-0621/#readme
+requires-python = ">=3.10"
+dynamic = ["version", "dependencies", "optional-dependencies"]
+name = "gh-pre"
+description = "gh-pre"
+readme = "README.md"
+authors = [{"name" = "Sorin Sbarnea", "email" = "sorin.sbarnea@gmail.com"}]
+maintainers = [{"name" = "Sorin Sbarnea", "email" = "sorin.sbarnea@gmail.com"}]
+license = {text = "MIT"}
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "Intended Audience :: System Administrators",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: MacOS",
+  "Operating System :: POSIX",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python",
+  "Topic :: System :: Systems Administration",
+  "Topic :: Software Development :: Quality Assurance",
+  "Topic :: Software Development :: Testing",
+  "Topic :: Utilities"
+]
+keywords = ["gh", "github"]
+
+[project.scripts]
+pre = "gh_pre.__main__:main"
+
+[project.urls]
+homepage = "https://github.com/pycontribs/gh-pre"
+repository = "https://github.com/pycontribs/gh-pre"
+changelog = "https://github.com/pycontribs/gh-pre/releases"
+
+[tool.setuptools.dynamic]
+dependencies = {file = [".config/requirements.txt"]}
+optional-dependencies.test = {file = [".config/test-requirements.txt"]}
+
+[tool.setuptools_scm]
+# For smarter version schemes and other configuration options,
+# check out https://github.com/pypa/setuptools_scm
+version_scheme = "no-guess-dev"

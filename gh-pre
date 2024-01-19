@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -e
+
+command -v pipx || {
+    echo "pipx not found, please installing it. See https://github.com/pypa/pipx"
+    exit 9
+}
+
+command -v pre || {
+    echo "pre not found"
+    pipx install -e .
+}
+
+pre "$@"

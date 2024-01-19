@@ -1,0 +1,16 @@
+PYSCAFFOLD
+REQPASS
+Sbarnea
+Sorin
+TOXENV
+autofix
+autoupdate
+capsys
+codespell
+commitlint
+coveragerc
+dists
+notest
+pycontribs
+pypa
+setuptools
