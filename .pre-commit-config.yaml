@@ -80,6 +80,8 @@ repos:
         additional_dependencies:
           - pytest
           - rich
+          - typer-config
+          - types-setuptools
   - repo: https://github.com/pycqa/pylint
     rev: v3.0.3
     hooks:
@@ -89,6 +91,7 @@ repos:
         additional_dependencies:
           - pytest
           - rich
+          - typer-config
   - repo: https://github.com/jazzband/pip-tools
     rev: 7.3.0
     hooks:

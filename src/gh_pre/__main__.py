@@ -4,27 +4,30 @@ import json
 
 import datetime
 from subprocess import run
+import os
+from typing import Optional
+from typing_extensions import Annotated
 
 from rich.panel import Panel
 from rich import box
 from rich.console import Console
+import typer
+from typer_config.decorators import use_yaml_config
 
 
-def main() -> None:
-    """Main entrypoint."""
+app = typer.Typer()
+
+
+@app.command()
+@use_yaml_config(
+    default_value=os.path.expanduser("~/pre.yml"),
+    param_help="Configuration file (~/pre.yml).",
+)
+def main(repos: Annotated[Optional[list[str]], typer.Option()] = None) -> None:
+    """Pre helps you chain releases on github."""
+    if repos is None:
+        repos = []
     console = Console()
-    repos = [
-        "ansible/ansible-compat",
-        "ansible/ansible-lint",
-        "ansible/ansible-navigator",
-        "ansible/ansible-creator",
-        "ansible/molecule",
-        "ansible/tox-ansible",
-        "ansible/pytest-ansible",
-        "ansible/ansible-development-environment",
-        "ansible/ansible-dev-tools",
-        "ansible/creator-ee",
-    ]
     for repo in repos:
         repo_link = f"[markdown.link][link=https://github.com/{repo}]{repo}[/][/]"
         result = run(
@@ -61,4 +64,4 @@ def main() -> None:
 
 if __name__ == "__main__":
     # execute only if run as a script
-    main()
+    app()

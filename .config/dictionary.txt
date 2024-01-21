@@ -14,3 +14,4 @@ notest
 pycontribs
 pypa
 setuptools
+typer
