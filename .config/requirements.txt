@@ -1,1 +1,4 @@
+pyyaml
 rich
+typer-config
+typing-extensions
