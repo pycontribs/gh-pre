@@ -30,6 +30,7 @@ jobs:
 
     env:
       FORCE_COLOR: 1
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }} # needed by 'gh' cli
       PY_COLORS: 1
       TOXENV: pkg
 
