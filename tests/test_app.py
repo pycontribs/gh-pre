@@ -1,4 +1,5 @@
 """Tests"""
+
 from typer.testing import CliRunner
 
 from gh_pre.__main__ import app
