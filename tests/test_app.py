@@ -1,16 +1,14 @@
 """Tests"""
-from pytest import CaptureFixture
-from gh_pre.__main__ import main
+from typer.testing import CliRunner
 
-__author__ = "Sorin Sbarnea"
-__copyright__ = "Sorin Sbarnea"
-__license__ = "MIT"
+from gh_pre.__main__ import app
 
 
-def test_main(capsys: CaptureFixture[str]) -> None:
+runner = CliRunner()
+
+
+def test_main() -> None:
     """CLI Tests"""
-    # capsys is a pytest fixture that allows asserts against stdout/stderr
-    # https://docs.pytest.org/en/stable/capture.html
-    main()
-    captured = capsys.readouterr()
-    assert "The 7-th Fibonacci number is 13" in captured.out
+    result = runner.invoke(app, ["--help", "--config=tests/pre.yml"])
+    assert result.exit_code == 0, result.stdout
+    assert "Pre helps you chain releases on github." in result.stdout

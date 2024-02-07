@@ -10,7 +10,6 @@ ci:
   skip:
     # https://github.com/pre-commit-ci/issues/issues/55
     - pip-compile
-    - schemas
   submodules: true
 exclude: >
   (?x)^(
@@ -80,6 +79,8 @@ repos:
         additional_dependencies:
           - pytest
           - rich
+          - typer-config
+          - types-setuptools
   - repo: https://github.com/pycqa/pylint
     rev: v3.0.3
     hooks:
@@ -89,6 +90,7 @@ repos:
         additional_dependencies:
           - pytest
           - rich
+          - typer-config
   - repo: https://github.com/jazzband/pip-tools
     rev: 7.3.0
     hooks:

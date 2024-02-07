@@ -37,7 +37,7 @@ classifiers = [
 keywords = ["gh", "github"]
 
 [project.scripts]
-pre = "gh_pre.__main__:main"
+pre = "gh_pre.__main__:app"
 
 [project.urls]
 homepage = "https://github.com/pycontribs/gh-pre"
